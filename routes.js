@@ -1,7 +1,17 @@
 import { Router } from "express";
 import { tareas, nextId } from "./data.js";
+import fs from "fs";
 
 export const router = Router();
+
+function guardarTareas() {
+  const contenido = `export const tareas = ${JSON.stringify(tareas, null, 2)};\n\n` +
+                    `export function nextId(items) {\n` +
+                    `  if (!Array.isArray(items) || items.length === 0) return 1;\n` +
+                    `  return Math.max(...items.map(t => t.id)) + 1;\n` +
+                    `}`;
+  fs.writeFileSync("./data.js", contenido, "utf8");
+}
 
 function validateCreate(body) {
   const errors = [];
@@ -68,6 +78,7 @@ router.post("/tasks", (req, res) => {
     completada: typeof req.body.completada === "boolean" ? req.body.completada : false
   };
   tareas.push(nueva);
+  guardarTareas();
   res.status(201).json({ ok: true, data: nueva });
 });
 
@@ -91,6 +102,7 @@ router.put("/tasks/:id", (req, res) => {
     ...( "completada" in req.body ? { completada: req.body.completada } : {} )
   };
   tareas[idx] = updated;
+  guardarTareas();
   res.json({ ok: true, data: updated });
 });
 
@@ -101,5 +113,6 @@ router.delete("/tasks/:id", (req, res) => {
     return res.status(404).json({ ok: false, error: "Tarea no encontrada" });
   }
   const eliminada = tareas.splice(idx, 1)[0];
+  guardarTareas();
   res.json({ ok: true, data: eliminada });
 });

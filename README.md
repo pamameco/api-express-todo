@@ -130,7 +130,7 @@ Cada tarea tiene la siguiente estructura:
 {
   "ok": true,
   "data": {
-    "id": 3,
+    "id": 4,
     "titulo": "Practicar CRUD",
     "descripcion": "Probar operaciones POST y GET",
     "completada": false
