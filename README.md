@@ -6,28 +6,33 @@ API RESTful básica creada con **Node.js** y **Express.js** para gestionar una l
 
 ## ⚙️ Instalación y ejecución
 
-1. Asegúrate de tener **Node.js**.  
-2. Descarga o clona el proyecto.  
-3. Instala las dependencias con:
-
+1. Asegúrarse de tener **Node.js**.  
+2. Descargar o clonar el proyecto.  
+3. Instalar las dependencias con:
+   ```bash
    npm install
-
+   ```
 4. Inicia el servidor:
-
+   ```bash
    npm start
-
-5. Abre Postman y usa la dirección base `http://localhost:3000`.
-
+   ```
+   o en modo desarrollo:
+   ```bash
+   npm run dev
+   ```
+5. Abrir Postman y usa la dirección base `http://localhost:3000`.
 ---
 
-## 🗂️ Estructura del proyecto
+## Estructura del proyecto
 
+```
 express-todo-api/
 ├─ index.js       → Servidor principal Express
 ├─ routes.js      → Definición de rutas y lógica CRUD
 ├─ data.js        → Fuente de datos (array de tareas)
 ├─ package.json   → Dependencias y scripts npm
 └─ README.md      → Documentación del proyecto
+```
 
 ---
 
