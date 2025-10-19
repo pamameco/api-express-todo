@@ -1,0 +1,27 @@
+{
+  "name": "express-todo-api",
+  "version": "1.0.0",
+  "description": "Mi primera API con Express.js - CRUD de Tareas (Semana 4 - Programación Back End, Unidad 2)",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "express",
+    "api",
+    "todo",
+    "crud",
+    "ipg",
+    "semana4"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
